@@ -1,0 +1,7 @@
+[
+  {
+    "selector": "h2",
+    "method": "wrapWithNextSib",
+    "paramator": "<div class=\"secheader\"></div>"
+  }
+]
