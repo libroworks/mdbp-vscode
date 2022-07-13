@@ -23,23 +23,43 @@ https://github.com/lwohtsu/atom-markdown-book-preview
 
 ![右クリックメニューからの実行](docimg-3.png)
 
+### 事前準備
+1. 作業フォルダー内に「_template.html」というファイルを置いてください。これで読み込むcssファイルを指定します。
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>doc</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="_css/fullpower.css">
+  </head>
+  <body>
+<%=content%>
+  </body>
+</html>
+```
+2. フォルダ内にVivliostyle Viewerのviwerフォルダを配置してください。
+
+- Vivliostyle Viewerのダウンロード
+https://vivliostyle.org/download/
+
 ## How to Use
+
+
 1. まずフォルダーを開いてください。そこがWebサーバーのルートになります。
 2. フォルダー内のMarkdownファイルを開き、右クリックメニューかコマンドパレットで、Start Serverを選択します。
 3. Open HTMLまたはVivliostyle Previewを選択すると、Webブラウザでプレビューが表示されます。※HTMLプレビューはコマンドパレットからのみ実行できます。
-4. あとはフォルダー内でファイルの更新が発生すると、自動的にWebブラウザのプレビューが更新されます。※フォルダー内を監視しているので、VSCode以外でファイルを保存した場合でも更新されます。
+4. あとはフォルダー内（サブフォルダーも含む）でファイルの更新が発生すると、自動的にWebブラウザのプレビューが更新されます。※フォルダー内を監視しているので、VSCode以外でファイルを保存した場合でも更新されます。
 
-### Start Live Server / Stop Live Server
-Live Serverを起動／終了します。
+### Start Server / Stop Server
+プレビュー用のLive Serverを起動／終了します。
 
 ### Open HTML preview
 CSSを適用したHTMLをVivliostyleを使わずに表示します。ページ区切りを気にせずに原稿を書きたいときに使います。
 
 ### Open Vivliostyle Preview
-Vivliostyleを使って書籍風に表示します。Markdownファイルが保存されたフォルダ内にVivliostyle Viewerのviwerフォルダを配置しておく必要があります。
-
-- Vivliostyle Viewerのダウンロード
-https://vivliostyle.org/download/
+Vivliostyleを使って書籍風に表示します。
 
 ### PDFの印刷
 PDFを出力したい場合は、Webブラウザ側の印刷機能を利用します。Chromeを利用する場合は、「送信先」を「PDFに保存」、「余白」を「なし」、「背景のグラフィック」をオンにしてください。
@@ -132,9 +152,10 @@ Markdownの記述を簡単にするために、デザイン都合でHTML構造�
 
 
 ## Requirements
-VSCode 1.69.0以上
+- VSCode 1.69.0以上
+- 作業フォルダー内にVivliostyle viwerが必要です。
+- TCP8085ポートを使用します。
 
-TCP8085ポートを使用します。
 
 ## Extension Settings
 
