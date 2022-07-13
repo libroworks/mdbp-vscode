@@ -79,8 +79,7 @@
     "submenus": [
       {
         "id": "mdbp-vscode-submenu1",
-        "label": "MDBP for VSCode",
-        "group": "1_modification@1"
+        "label": "MDBP for VSCode"
       }
     ]
   },
@@ -105,7 +104,6 @@
     "chokidar": "^3.5.3",
     "colors": "^1.4.0",
     "connect": "^3.7.0",
-    "electron": "^19.0.8",
     "event-stream": "^4.0.1",
     "faye-websocket": "^0.11.4",
     "fs": "^0.0.1-security",
