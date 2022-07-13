@@ -36,13 +36,51 @@
       },
       {
         "command": "mdbp-vscode.toggleVS",
-        "title": "Open VSCode Preview",
+        "title": "Open Vivliostyle Preview",
         "category": "mdbp-vscode"
       },
       {
         "command": "mdbp-vscode.exportXML",
         "title": "Export InDesign XML",
         "category": "mdbp-vscode"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "mdbp-vscode-submenu1",
+          "group": "MDBP",
+          "when": "resourceLangId == markdown"
+        }
+      ],
+      "mdbp-vscode-submenu1": [
+        {
+          "command": "mdbp-vscode.startServer",
+          "group": "0_MDBP-server",
+          "when": "resourceLangId == markdown"
+        },
+        {
+          "command": "mdbp-vscode.stopServer",
+          "group": "0_MDBP-server",
+          "when": "resourceLangId == markdown"
+        },
+        {
+          "command": "mdbp-vscode.toggleVS",
+          "group": "1_MDBP-preview",
+          "when": "resourceLangId == markdown"
+        },
+        {
+          "command": "mdbp-vscode.exportXML",
+          "group": "3_MDBP-indesign",
+          "when": "resourceLangId == markdown"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "mdbp-vscode-submenu1",
+        "label": "MDBP for VSCode",
+        "group": "1_modification@1"
       }
     ]
   },
