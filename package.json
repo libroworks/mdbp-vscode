@@ -7,7 +7,7 @@
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -21,7 +21,7 @@
     "onCommand:mdbp-vscode.toggleVS",
     "onCommand:mdbp-vscode.exportXML"
   ],
-  "main": "./extension.js",
+  "main": "./out/main.js",
   "contributes": {
     "commands": [
       {
@@ -91,7 +91,12 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "node ./test/runTest.js",
+    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run -S esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
@@ -99,6 +104,7 @@
     "@types/node": "14.x",
     "@types/vscode": "^1.69.0",
     "@vscode/test-electron": "^2.1.3",
+    "esbuild": "^0.14.49",
     "eslint": "^8.14.0",
     "glob": "^8.0.1",
     "mocha": "^9.2.2",
@@ -109,11 +115,14 @@
     "chokidar": "^3.5.3",
     "colors": "^1.4.0",
     "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "emitter": "^0.0.5",
     "event-stream": "^4.0.1",
     "faye-websocket": "^0.11.4",
     "fs": "^0.0.1-security",
     "highlight.js": "^11.5.1",
     "http": "^0.0.1-security",
+    "http-auth": "^4.1.9",
     "http-proxy": "^1.18.1",
     "image-size": "^1.0.1",
     "lodash": "^4.17.21",
@@ -122,6 +131,7 @@
     "opn": "^6.0.0",
     "os": "^0.1.2",
     "path": "^0.12.7",
+    "proxy-middleware": "^0.15.0",
     "send": "^0.18.0",
     "serve-index": "^1.9.1"
   }
