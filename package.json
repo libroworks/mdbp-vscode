@@ -1,4 +1,9 @@
 {
+  "publisher": "libroworks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libroworks/mdbp-vscode"
+  },
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
