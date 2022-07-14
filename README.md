@@ -1,7 +1,4 @@
 # mdbp-vscode README
-
-This is the README for your extension "mdbp-vscode". After writing up a brief description, we recommend including the following sections.
-
 MDBP（MarkDown-Book-Preview）は書籍の原稿作成に適したMarkdownプレビューの機能拡張です。 [Vivliostyle Viewer](https://vivliostyle.org/download/)と組み合わせて書籍の体裁で表示し、原稿データをInDesign向けのXMLファイルとして書き出す機能を持ちます。
 
 AtomパッケージをVSCodeに移植しました。
