@@ -7,7 +7,7 @@
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -21,7 +21,7 @@
     "onCommand:mdbp-vscode.toggleVS",
     "onCommand:mdbp-vscode.exportXML"
   ],
-  "main": "./out/main.js",
+  "main": "./extension.js",
   "contributes": {
     "commands": [
       {
@@ -91,12 +91,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js",
-    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
-    "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
-    "esbuild": "npm run -S esbuild-base -- --sourcemap",
-    "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
-    "test-compile": "tsc -p ./"
+    "test": "node ./test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
