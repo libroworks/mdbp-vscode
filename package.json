@@ -7,7 +7,7 @@
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -21,7 +21,7 @@
     "onCommand:mdbp-vscode.toggleVS",
     "onCommand:mdbp-vscode.exportXML"
   ],
-  "main": "./extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -89,6 +89,9 @@
     ]
   },
   "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "node ./test/runTest.js"
@@ -102,7 +105,9 @@
     "eslint": "^8.14.0",
     "glob": "^8.0.1",
     "mocha": "^9.2.2",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
