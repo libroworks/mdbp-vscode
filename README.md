@@ -167,6 +167,8 @@ Users appreciate release notes as you update your extension.
 Initial release of ...
 
 ### 0.0.8
+
+### 0.0.11
 Update README
 
 -----------------------------------------------------------------------------------------------------------
