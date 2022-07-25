@@ -167,9 +167,13 @@ Users appreciate release notes as you update your extension.
 Initial release of ...
 
 ### 0.0.8
+初期安定版（bundleなし）
 
 ### 0.0.11
-Update README
+プレリリース版
+
+### 0.1.0
+bundle by Webpack（サイズが10分の1になったので多分早くなった）
 
 -----------------------------------------------------------------------------------------------------------
 
