@@ -19,6 +19,7 @@
     "onCommand:mdbp-vscode.stopServer",
     "onCommand:mdbp-vscode.toggle",
     "onCommand:mdbp-vscode.toggleVS",
+    "onCommand:mdbp-vscode.previewThisCLI",
     "onCommand:mdbp-vscode.exportXML"
   ],
   "main": "./dist/extension.js",
@@ -42,6 +43,11 @@
       {
         "command": "mdbp-vscode.toggleVS",
         "title": "Open Vivliostyle Preview",
+        "category": "mdbp-vscode"
+      },
+      {
+        "command": "mdbp-vscode.previewThisCLI",
+        "title": "Open Vivliostyle CLI Preview",
         "category": "mdbp-vscode"
       },
       {

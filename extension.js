@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const {MarkdownBookPreviewServer} = require('./lib/markdown-book-preview-server');
+const {MarkdownBookPreviewConvert} = require('./lib/markdown-book-preview-convert');
 
 
 // this method is called when your extension is activated
@@ -22,6 +23,16 @@ function activate(context) {
   context.subscriptions.push(vscode.commands.registerCommand('mdbp-vscode.toggle', toggle));
   context.subscriptions.push(vscode.commands.registerCommand('mdbp-vscode.toggleVS', toggleVS));
   context.subscriptions.push(vscode.commands.registerCommand('mdbp-vscode.exportXML', exportXML));
+  context.subscriptions.push(vscode.commands.registerCommand('mdbp-vscode.previewThisCLI', ()=>{
+    const htmlfilepath = convertMD2HTML();
+    if(htmlfilepath){
+      callShell(`vivliostyle preview "${htmlfilepath}"`);
+    }
+    // 自動更新対応
+    vscode.workspace.onDidSaveTextDocument( event => {
+      convertMD2HTML();
+    });
+  }));
 
 
   // サーバーの起動終了
@@ -59,6 +70,31 @@ function activate(context) {
     markdownBookPreviewServer.exportInDesignXML(mdpath);
   }
 
+  // Markdownファイルの変換
+  function convertMD2HTML(){
+    const editor = vscode.window.activeTextEditor;
+    if (checkEditorPath(editor) === false) return null;
+    // プレビューしたいパスやVSmodeを設定
+    const mdpath = editor.document.fileName.replace(/^[a-z]:/, (d) => d.toUpperCase()); 
+    console.log(mdpath);
+    const homePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+    const htmlfilepath = MarkdownBookPreviewConvert.convertMarkdown(mdpath, homePath);
+    return htmlfilepath;
+  }
+
+  // ターミナルにコマンドを発行する
+  function callShell(shellcommand){
+    const term = vscode.window.activeTerminal?.name === 'vivliostyle-cli-helper' ? vscode.window.activeTerminal : vscode.window.createTerminal('vivliostyle-cli-helper');
+    term.show();
+    // PowerShellかつvivliostyleスクリプトの実行時のみ許可が必要
+    if(vscode.env.shell.includes('powershell') && shellcommand.indexOf('vivliostyle') === 0){
+      term.sendText(`PowerShell -ExecutionPolicy RemoteSigned ${shellcommand}`);
+    } else {
+      term.sendText(shellcommand);
+    }
+  }
+  
+
   // チェック
   function checkEditorPath(editor) {
     if (editor === null || editor === undefined) return false;
@@ -82,5 +118,3 @@ module.exports = {
   activate,
   deactivate
 }
-
-
