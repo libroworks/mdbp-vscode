@@ -149,7 +149,7 @@ Markdownの記述を簡単にするために、デザイン都合でHTML構造�
 
 ### Vivliostyle CLIのサポート（v0.1.5より追加）
 コマンドパネルより、mdbp-vscode: Open Viviostyle Preview CLIを選択すると、Vivliostyle CLIによるプレビューを利用できます。
-Node.jsとVivliostyle CLIのインストールが別途必要ですが、原稿フォルダにViewerを用意する必要がなくなります（ViewerのバージョンはVivliostyle CLIのバージョンに依存）。
+Node.jsとVivliostyle CLIのインストールが別途必要ですが、原稿フォルダにViewerを用意したり（ViewerのバージョンはVivliostyle CLIのバージョンに依存）、サーバーを起動したりする必要がなくなります。
 
 https://docs.vivliostyle.org/ja/vivliostyle-cli
 
@@ -161,13 +161,8 @@ https://docs.vivliostyle.org/ja/vivliostyle-cli
 - TCP8085ポートを使用します。
 
 
-## Extension Settings
-
-## Known Issues
 
 ## Release Notes
-
-Users appreciate release notes as you update your extension.
 
 ### 0.0.1
 
