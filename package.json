@@ -7,7 +7,7 @@
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -117,7 +117,6 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "chokidar": "^3.5.3",
     "colors": "^1.4.0",
     "connect": "^3.7.0",
     "cors": "^2.8.5",

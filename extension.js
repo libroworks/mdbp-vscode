@@ -28,11 +28,12 @@ function activate(context) {
     if(htmlfilepath){
       callShell(`vivliostyle preview "${htmlfilepath}"`);
     }
-    // 自動更新対応
-    vscode.workspace.onDidSaveTextDocument( event => {
-      convertMD2HTML();
-    });
   }));
+
+  // 自動更新設定（WorkSpace内のファイルが更新され、それがMarkdownであればHTMLを書き出す）
+  vscode.workspace.onDidSaveTextDocument( event => {
+    convertMD2HTML();
+  });
 
 
   // サーバーの起動終了
@@ -77,7 +78,7 @@ function activate(context) {
     // プレビューしたいパスやVSmodeを設定
     const mdpath = editor.document.fileName.replace(/^[a-z]:/, (d) => d.toUpperCase()); 
     console.log(mdpath);
-    const homePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+    const homePath = MarkdownBookPreviewServer.searchHomepath(mdpath);
     const htmlfilepath = MarkdownBookPreviewConvert.convertMarkdown(mdpath, homePath);
     return htmlfilepath;
   }
