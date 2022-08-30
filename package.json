@@ -7,7 +7,7 @@
   "name": "mdbp-vscode",
   "displayName": "mdbp_vscode",
   "description": "Markdown Book Preview for VSCode",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "engines": {
     "vscode": "^1.69.0"
   },

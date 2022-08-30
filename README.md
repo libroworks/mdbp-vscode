@@ -142,10 +142,17 @@ Markdownの記述を簡単にするために、デザイン都合でHTML構造�
 これを利用すると、章ごとにツメや柱の位置を動かすことなどができます（章の数だけCSSを書くのは若干面倒ですが）。
 また、前付け／後付けのみ他と書式を変えることも可能になります。
 
-### ブックモード（version 2.2あたりで追加）
+### ブックモード
 「maeduke.md」というファイルをVivliostyleプレビューで表示した場合、ビューワーのURLに「`&bookMode=True'」を付けます。
 これによりViviostyleビューワーのブックモードが有効になり、目次のnav要素内でリンクしたHTMLファイルを順番に読み込んで、1つのブックとしてレンダリングします。
 この機能を利用しないと、全体でページを通すことができません。
+
+### Vivliostyle CLIのサポート（v0.1.5より追加）
+コマンドパネルより、mdbp-vscode: Open Viviostyle Preview CLIを選択すると、Vivliostyle CLIによるプレビューを利用できます。
+Node.jsとVivliostyle CLIのインストールが別途必要ですが、原稿フォルダにViewerを用意する必要がなくなります（ViewerのバージョンはVivliostyle CLIのバージョンに依存）。
+
+https://docs.vivliostyle.org/ja/vivliostyle-cli
+
 
 
 ## Requirements
@@ -182,6 +189,10 @@ bundle by Webpack（サイズが10分の1になったので多分早くなった
 プレビュー更新エラーを防ぐために、各所に手を加えた。
 chokidarを外し、更新チェックにはVSCode APIのonDidSaveTextDocumentを使う形に。
 副作用としてMarkdownの更新時しかプレビューが更新されなくなった。
+Vivliostyle CLIによるプレビューにも対応
+
+### 0.1.5
+READMEの更新
 
 
 -----------------------------------------------------------------------------------------------------------
