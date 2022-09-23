@@ -29,6 +29,12 @@ function activate(context) {
       callShell(`vivliostyle preview "${htmlfilepath}"`);
     }
   }));
+  context.subscriptions.push(vscode.commands.registerCommand('mdbp-vscode.buildThisCLI', ()=>{
+    const htmlfilepath = convertMD2HTML();
+    if(htmlfilepath){
+      callShell(`vivliostyle build "${htmlfilepath}"`);
+    }
+  }));
 
   // 自動更新設定（WorkSpace内のファイルが更新され、それがMarkdownであればHTMLを書き出す）
   vscode.workspace.onDidSaveTextDocument( event => {
