@@ -1,4 +1,11 @@
 # mdbp-vscode README
+
+今後はVivliostyle CLIとの連携を深めたvfm_mdbp_vscodeに移行します。
+
+https://marketplace.visualstudio.com/items?itemName=Libroworks.vfmdbp-vscode
+
+**この拡張機能は更新を終了します。**
+
 MDBP（MarkDown-Book-Preview）は書籍の原稿作成に適したMarkdownプレビューの機能拡張です。 [Vivliostyle Viewer](https://vivliostyle.org/download/)と組み合わせて書籍の体裁で表示し、原稿データをInDesign向けのXMLファイルとして書き出す機能を持ちます。
 
 AtomパッケージをVSCodeに移植しました。
